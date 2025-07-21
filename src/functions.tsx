@@ -1,3 +1,4 @@
+import type { boardElementType } from "./types";
 
 
 
@@ -8,12 +9,12 @@ export function fenToBoard(fen : string) {
     const boardRow = [];
 
     for (const char of row) {
-      if (isNaN(char)) {
-        boardRow.push(char); // piece (e.g., 'p', 'R', etc.)
+      if (isNaN(Number(char))) {
+        boardRow.push(char); 
       } else {
         const emptySquares = parseInt(char);
         for (let i = 0; i < emptySquares; i++) {
-          boardRow.push(null); // empty square
+          boardRow.push(null); 
         }
       }
     }
@@ -23,7 +24,7 @@ export function fenToBoard(fen : string) {
 }
 
 
-export function boardToFen(board) {
+export function boardToFen(board : boardElementType[][]) {
   return board
     .map(row => {
       let emptyCount = 0;
@@ -41,7 +42,7 @@ export function boardToFen(board) {
         }
       }
 
-      // If row ends with empty squares
+      
       if (emptyCount > 0) fenRow += emptyCount;
 
       return fenRow;
