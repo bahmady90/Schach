@@ -19,7 +19,7 @@ export default function Chessboard() {
   const { squaresPerFigure } = useChessUiLogic();
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-800">
+    <main className="flex items-center justify-center min-h-screen bg-gray-900">
       {/* div fürs Schachbrett */}
         <div className="w-full sm:w-[90vmin] sm:max-w-[90vmin] aspect-square grid grid-cols-8 grid-rows-8 shadow-lg border-4 border-gray-300 rounded-lg">
           {boardState.flatMap((rowArray, rowIndex) =>

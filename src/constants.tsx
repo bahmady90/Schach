@@ -4,7 +4,7 @@ export const figuresStylingWhiteTwo = "text-gray-100 w-[80%] h-[80%]";
 
 export const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
-
+//initialer Schachbrett
 export const initialBoardState = [
   [ { type: "r", color: "b" }, { type: "n", color: "b" }, { type: "b", color: "b" }, { type: "q", color: "b" }, { type: "k", color: "b" }, { type: "b", color: "b" }, { type: "n", color: "b" }, { type: "r", color: "b" } ],
   [ { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" }, { type: "p", color: "b" } ],

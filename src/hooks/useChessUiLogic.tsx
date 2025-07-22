@@ -7,8 +7,8 @@ export default function useChessUiLogic()
 {
     const {clickedFigure, dispatch, availableMovesPerFigure, boardState, turn} = useChess();
     const chess = useChessEngine();
-    const [moveSound] = useSound('../sounds/move.mp3');
-    const [atackSound] = useSound('../sounds/atack.mp3');
+    const [moveSound] = useSound('../public/move.mp3');
+    const [atackSound] = useSound('../public/atack.mp3');
     
 
 
