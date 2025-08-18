@@ -86,7 +86,7 @@ export default function StartGame() {
         <div className="flex flex-col items-center gap-3 order-3 lg:order-none">
           <div className="w-[5rem] sm:w-[7rem] lg:w-[8rem] h-[5rem] sm:h-[7rem] lg:h-[8rem] rounded-full overflow-hidden border-2 border-[#333] bg-[#ddd] grid place-items-center shadow-[0_6px_18px_rgba(0,0,0,.25)]">
             <img
-              src="../../public/sheeva.png"
+              src="../../sheeva.png"
               alt="Bot Avatar"
               className="w-full h-full object-cover block"
             />

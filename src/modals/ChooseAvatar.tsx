@@ -1,22 +1,22 @@
 import { useChess } from "../context/ChessContext";
 
 const avatars = [
-  { src: "/avatars/m1.svg" },
-  { src: "/avatars/m2.svg" },
-  { src: "/avatars/m3.svg" },
-  { src: "/avatars/m4.svg" },
-  { src: "/avatars/m5.svg" },
-  { src: "/avatars/m6.svg" },
-  { src: "/avatars/m7.svg" },
-  { src: "/avatars/m8.svg" },
-  { src: "/avatars/w1.svg" },
-  { src: "/avatars/w2.svg" },
-  { src: "/avatars/w3.svg" },
-  { src: "/avatars/w4.svg" },
-  { src: "/avatars/w5.svg" },
-  { src: "/avatars/w6.png" },
-  { src: "/avatars/w7.svg" },
-  { src: "/avatars/w8.svg" },
+  { src: "/m1.svg" },
+  { src: "/m2.svg" },
+  { src: "/m3.svg" },
+  { src: "/m4.svg" },
+  { src: "/m5.svg" },
+  { src: "/m6.svg" },
+  { src: "/m7.svg" },
+  { src: "/m8.svg" },
+  { src: "/w1.svg" },
+  { src: "/w2.svg" },
+  { src: "/w3.svg" },
+  { src: "/w4.svg" },
+  { src: "/w5.svg" },
+  { src: "/w6.png" },
+  { src: "/w7.svg" },
+  { src: "/w8.svg" },
 ];
 
 export default function ChooseAvatar() {

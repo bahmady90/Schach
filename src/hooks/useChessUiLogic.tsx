@@ -13,8 +13,8 @@ export default function useChessUiLogic() {
     makeMove,
   } = useChess();
   const chess = useChessEngine();
-  const [moveSound] = useSound("../public/move.mp3");
-  const [atackSound] = useSound("../public/atack.mp3");
+  const [moveSound] = useSound("../move.mp3");
+  const [atackSound] = useSound("../atack.mp3");
 
   //hinzufügen des Rochagezugs zu den availableMovesPerFigure
   useEffect(() => {
