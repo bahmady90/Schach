@@ -1,6 +1,8 @@
 export const figuresStylingBlack = "text-black w-[80%] h-[80%]";
 export const figuresStylingWhite = "text-zinc-100 w-[80%] h-[80%]";
-export const figuresStylingWhiteTwo = "text-gray-100 w-[80%] h-[80%]";
+export const figuresStylingWhiteDarkBrackground = "text-white w-[80%] h-[80%]";
+
+
 
 export const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
@@ -17,13 +19,14 @@ export const initialBoardState = [
 ];
 
 /* export const initialBoardState = [
-  [ null, null, null, null, null, null, null, null ], // 8
-  [ { type: "p", color: "w" }, null, null, null, null, null, null, null ], // 7 ← White pawn on a7
-  [ null, null, null, null, null, null, null, null ], // 6
+  [ null, null, null, null, null, null, null, { type: "k", color: "b" } ], // 8
+  [ null, null, null, null, null, { type: "q", color: "w" }, null, null ], // 7
+  [ null, null, null, null, null, null, null, { type: "k", color: "w" } ], // 6
   [ null, null, null, null, null, null, null, null ], // 5
   [ null, null, null, null, null, null, null, null ], // 4
   [ null, null, null, null, null, null, null, null ], // 3
   [ null, null, null, null, null, null, null, null ], // 2
-  [ null, null, null, null, { type: "k", color: "b" }, null, null, { type: "k", color: "w" } ], // 1 ← Black king on e1, white king on h1
-];
- */
+  [ null, null, null, null, null, null, null, null ], // 1
+]; */
+
+

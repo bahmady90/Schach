@@ -1,42 +1,68 @@
 import { useChess } from "../context/ChessContext";
 import { useChessEngine } from "../context/ChessEngineContext";
+import {Move } from "chess.js";
+import { useEffect, useRef } from "react";
 
-export default function useBot()
-{
-    const {dispatch} = useChess();
-    const chess = useChessEngine();
+type BestMove = Move | null;
 
+interface WorkerMessage {
+  fen: string;
+  depth: number;
+  botColor: string;
+}
 
-    function makeRandomBotMove() {
-        const possibleMoves = chess.moves({verbose: true});
-        if (possibleMoves.length === 0) return; // Game over or no legal moves
+export default function useBot() {
+  const { dispatch, botColor } = useChess();
+  const chess = useChessEngine();
 
-        const randomNumber = Math.floor(Math.random() * possibleMoves.length);
+  const workerRef = useRef<Worker | null>(null);
 
-        const moveBefore = possibleMoves[randomNumber].from;
-        const moveAfter = possibleMoves[randomNumber].to;
-        const isPromotion = possibleMoves[randomNumber].isPromotion();
+  useEffect(() => {
+    workerRef.current = new Worker(new URL("../botWorker.ts", import.meta.url), {
+      type: "module",
+    });
 
-        setTimeout(() => {
-            // Im Falle einer Promotion kriegt man Einfachheit halber direkt die Dame. 
-            if(isPromotion)
-            {   
-                chess.move({from: moveBefore, to: moveAfter, promotion: "q"});
-            }
-            else
-            {
-                chess.move({from: moveBefore, to: moveAfter});
-            }
-            dispatch({type: "SET_BOARDSTATE", payload: chess.board()})
-            dispatch({type: "SET_MOVES_PLAYED", payload: [moveBefore, moveAfter]})
-            dispatch({type: "SET_TURN"})
-            dispatch({type: "SET_CLICKED_FIGURE", payload: ""})
-        }, 300)
+    workerRef.current.onmessage = (event: MessageEvent<BestMove>) => {
+      const bestMove = event.data;
+      if (!bestMove) {
+        dispatch({ type: "SET_BOT_CALCULATING_FALSE" });
+        return;
+      }
 
-        
-    }
+      const moveBefore = bestMove.from;
+      const moveAfter = bestMove.to;
+      const isPromotion = bestMove.promotion !== undefined;
 
-    return {makeRandomBotMove}
+      if (isPromotion) {
+        chess.move({ from: moveBefore, to: moveAfter, promotion: "q" });
+      } else {
+        chess.move({ from: moveBefore, to: moveAfter });
+      }
+
+      dispatch({ type: "SET_BOARDSTATE", payload: chess.board() });
+      dispatch({ type: "SET_MOVES_PLAYED", payload: [moveBefore, moveAfter] });
+      dispatch({ type: "SET_TURN" });
+      dispatch({ type: "SET_CLICKED_FIGURE", payload: "" });
+
+      dispatch({ type: "SET_BOT_CALCULATING_FALSE" });
+    };
+
+    return () => {
+      workerRef.current?.terminate();
+    };
+  }, [dispatch, chess]);
+
+  function makeNextBotMove() {
+    dispatch({ type: "SET_BOT_CALCULATING_TRUE" });
+
+    workerRef.current?.postMessage({
+      fen: chess.fen(),
+      depth: 3,
+      botColor,
+    } as WorkerMessage);
+  }
+
+  return { makeNextBotMove };
 }
 
 

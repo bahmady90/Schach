@@ -1,12 +1,12 @@
-import {figuresStylingBlack, figuresStylingWhite } from "../constants";
+import {figuresStylingBlack, figuresStylingWhite, figuresStylingWhiteDarkBrackground } from "../constants";
 import type { svgProps } from "../types";
 
-export default function Knight({color, frameColor}: svgProps)
+export default function Knight({color, frameColor, isDark}: svgProps)
 {
     const isWhite = color === "w";
     
     return(
-        <svg className={`${isWhite ? figuresStylingWhite : figuresStylingBlack}`} 
+        <svg className={`${isWhite ? isDark ? figuresStylingWhiteDarkBrackground :figuresStylingWhite : figuresStylingBlack}`} 
             fill="currentColor" 
             version="1.1"  
             xmlns="http://www.w3.org/2000/svg" 

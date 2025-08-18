@@ -1,8 +1,6 @@
 import type { boardElementType } from "./types";
 
-
-
-export function fenToBoard(fen : string) {
+export function fenToBoard(fen: string) {
   const rows = fen.split(" ")[0].split("/");
 
   return rows.map((row) => {
@@ -10,11 +8,11 @@ export function fenToBoard(fen : string) {
 
     for (const char of row) {
       if (isNaN(Number(char))) {
-        boardRow.push(char); 
+        boardRow.push(char);
       } else {
         const emptySquares = parseInt(char);
         for (let i = 0; i < emptySquares; i++) {
-          boardRow.push(null); 
+          boardRow.push(null);
         }
       }
     }
@@ -23,10 +21,9 @@ export function fenToBoard(fen : string) {
   });
 }
 
-
-export function boardToFen(board : boardElementType[][]) {
+export function boardToFen(board: boardElementType[][]) {
   return board
-    .map(row => {
+    .map((row) => {
       let emptyCount = 0;
       let fenRow = "";
 
@@ -42,7 +39,6 @@ export function boardToFen(board : boardElementType[][]) {
         }
       }
 
-      
       if (emptyCount > 0) fenRow += emptyCount;
 
       return fenRow;
@@ -50,12 +46,17 @@ export function boardToFen(board : boardElementType[][]) {
     .join("/");
 }
 
-
-export function getInitalBotTurn()
-{
+export function getInitalBotTurn() {
   const turns = ["w", "b"];
   const randomIndex = Math.floor(Math.random() * 2);
   return turns[randomIndex];
 }
 
-
+export function formatTime(time: number): string {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+    2,
+    "0"
+  )}`;
+}
