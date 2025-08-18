@@ -41,8 +41,8 @@ export default function Card({ color }: CardProps) {
         src={
           isBot
             ? botIsCalculating
-              ? "../../public/bot/sheeva-calculating.png"
-              : "../../public/bot/sheeva.png"
+              ? "../../public/sheeva-calculating.png"
+              : "../../public/sheeva.png"
             : `${dataPlayer.img}`
         }
         alt="Bordered avatar"

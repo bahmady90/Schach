@@ -71,7 +71,7 @@ const initialState: ChessState = {
   botIsCalculating: false,
   gameState: "initialize",
   gameResult: "",
-  dataPlayer: { name: "", img: "../../public/avatars/default.png" },
+  dataPlayer: { name: "", img: "../../public/default.png" },
   openChooseAvatar: false,
 };
 
