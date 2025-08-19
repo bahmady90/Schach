@@ -149,6 +149,7 @@ function chessReducer(state: ChessState, action: Action): ChessState {
       return {
         ...initialState,
         gameState: "active",
+        dataPlayer: state.dataPlayer,
       };
     case "SET_PLAYER_NAME":
       return {

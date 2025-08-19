@@ -6,14 +6,15 @@ import LoadingDots from "./LoadingDots";
 export default function ChessGame() {
   const { botIsCalculating } = useChess();
 
+  // 2 verschiedene Layouts abbhängig von der Bildschirmgröße
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-[1fr_1fr_3fr]">
       <div className=""></div>
       <div className="hidden lg:grid">
-        <div className="justify-self-center self-start mt-[15%]">
+        <div className="justify-self-center self-start mt-[20%]">
           <Card color="b" />
         </div>
-        <div className="justify-self-center self-end mb-[15%]">
+        <div className="justify-self-center self-end mb-[20%]">
           <Card color="w" />
         </div>
       </div>
