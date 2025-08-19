@@ -7,16 +7,11 @@ import Modal from "./modals/Modal";
 import StartGame from "./modals/StartGame";
 import Header from "./Header";
 import Result from "./modals/Result";
-import useChessUiLogic from "./hooks/useChessUiLogic";
 import ChessGame from "./ChessGame";
 import ChooseAvatar from "./modals/ChooseAvatar";
 
 function App() {
   const chess = useChessEngine();
-
-  const { squaresPerFigure } = useChessUiLogic();
-
-  console.log(squaresPerFigure);
 
   const {
     botColor,
@@ -34,6 +29,7 @@ function App() {
     gameState === "initialize" ||
     gameState === "finish";
 
+  //Effekt für den Zug des Bots. Wenn das Spiel vorbei ist, soll der keinen Zug machen
   useEffect(() => {
     if (gameState === "active") {
       if (chess.turn() === botColor && !botIsCalculating) {
@@ -52,6 +48,7 @@ function App() {
     
   }, []); */
 
+  // Effekt zum Beenden des Spiels abbhänig davon ob gewonnen/unentschieden/verloren war mit einem kleinen Timeout
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (chess.isGameOver()) {
@@ -66,11 +63,12 @@ function App() {
           }
         }
       }
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(timeout);
   }, [botColor, chess, dispatch, turn]);
 
+  // Effekt für die Timer-Funktionalität
   useEffect(() => {
     const interval = setInterval(() => {
       if (gameState === "active") {

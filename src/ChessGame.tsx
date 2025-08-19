@@ -10,10 +10,10 @@ export default function ChessGame() {
     <div className=" grid grid-cols-1 lg:grid-cols-[1fr_1fr_3fr]">
       <div className=""></div>
       <div className="hidden lg:grid">
-        <div className="justify-self-center self-start mt-[20%]">
+        <div className="justify-self-center self-start mt-[15%]">
           <Card color="b" />
         </div>
-        <div className="justify-self-center self-end mb-[20%]">
+        <div className="justify-self-center self-end mb-[15%]">
           <Card color="w" />
         </div>
       </div>
