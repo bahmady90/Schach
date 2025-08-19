@@ -83,23 +83,27 @@ function App() {
   }, [botColor, dispatch, turn, gameState]);
 
   return (
-    <main
-      className="min-h-screen bg-[#050218]   
-      grid gap-y-1 sm:grid-rows-[1fr_12fr] grid-rows-[1fr_11fr]"
-    >
+    <main className="min-h-screen bg-[#050218] grid gap-y-1 sm:grid-rows-[1fr_12fr] grid-rows-[1fr_11fr]">
       <Header />
-      {gameState === "active" && <ChessGame />}
-      <Modal open={openModal}>
-        {openChooseAvatar ? (
-          <ChooseAvatar />
-        ) : gameState === "finish" ? (
-          <Result />
-        ) : gameState === "initialize" ? (
-          <StartGame />
-        ) : (
-          ""
+
+      {/* Content-Bereich unter Header */}
+      <div className="relative">
+        {gameState === "active" && <ChessGame />}
+
+        {openModal && (
+          <div className="absolute inset-0 flex items-center justify-center z-40">
+            <Modal open={true}>
+              {openChooseAvatar ? (
+                <ChooseAvatar />
+              ) : gameState === "finish" ? (
+                <Result />
+              ) : gameState === "initialize" ? (
+                <StartGame />
+              ) : null}
+            </Modal>
+          </div>
         )}
-      </Modal>
+      </div>
     </main>
   );
 }

@@ -18,11 +18,11 @@ export default function ChessGame() {
           <Card color="w" />
         </div>
       </div>
-      <div className="flex flex-col overflow-hidden justify-center items-center lg:items-start h-full  gap-y-4 relative">
+      <div className="flex flex-col overflow-hidden justify-center items-center lg:items-start h-full  gap-y-4 relative mt-[3%] sm:mt-[5px]">
         <div className="block lg:hidden">
           <Card color="b" />
         </div>
-        <div className="relative w-full sm:w-[80vmin] aspect-square">
+        <div className="relative w-full sm:w-[80vmin] aspect-square lg:mt-[5%]">
           <Chessboard />
           {botIsCalculating && (
             <div className="absolute inset-0 flex justify-center items-center  bg-opacity-40 text-white text-2xl z-10  gap-x-2 sm:gap-x-3 lg:gap-x-4">

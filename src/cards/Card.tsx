@@ -20,7 +20,7 @@ export default function Card({ color }: CardProps) {
     <div
       className={`flex w-fit justify-center items-center gap-x-4 sm:gap-x-5 ${parentDivBackgroundStyling} justify-self-start rounded-3xl p-2 sm:p-3 shadow-sm `}
     >
-      <div className="grid grid-rows-2 min-w-[2rem] sm:min-w-[3rem] md:min-w-[4rem]">
+      <div className="grid grid-rows-2 min-w-[3rem] sm:min-w-[4rem] md:min-w-[5rem]">
         <p className={`${paragraphColor} text-lg justify-self-center`}>
           {isBot ? "Sheevá" : dataPlayer.name}
         </p>

@@ -12,7 +12,7 @@ function Modal({ open, children }: ModalProps) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 bg-[#050218]  flex justify-center items-center w-full h-full z-40">
+    <div className="absolute inset-0 bg-[#050218]  flex justify-center items-center w-full h-full z-40">
       <div
         ref={modalRef}
         className="bg-stone-200 p-0 rounded-3xl w-[90%] sm:w-[70%] lg:w-[60%] h-[80%] max-h-[500px] sm:max-h-[800px]"
